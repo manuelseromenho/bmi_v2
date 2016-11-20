@@ -30,7 +30,7 @@ public class resultado extends Fragment {
         double resultado_double;
 
 
-        //Caso os valores das caixas de texto sejam diferentes de um número,
+        //Caso os valores das  caixas de texto sejam diferentes de um número,
         //indica messagem de erro, caso os valores sejam números, procede-se
         //ao calculo
 
