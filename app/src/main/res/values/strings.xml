@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BMI v2 by Manuel Seromenho</string>
+    <string name="resultado">Resultado</string>
+    <string name="altura_cm">Altura (cm):</string>
+    <string name="button">Button</string>
+    <string name="peso">peso</string>
+    <string name="peso_kg">Peso (Kg)</string>
+</resources>
