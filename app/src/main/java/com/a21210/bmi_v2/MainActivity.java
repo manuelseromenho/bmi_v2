@@ -2,10 +2,12 @@ package com.a21210.bmi_v2;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 public class MainActivity
-        extends FragmentActivity
+        extends AppCompatActivity
         implements dados.OnFragmentInteractionListener
 {
 
@@ -15,6 +17,9 @@ public class MainActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
     }
 
     public void onButtonClick(double altura, double peso)
