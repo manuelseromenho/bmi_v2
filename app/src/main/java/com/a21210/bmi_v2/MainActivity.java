@@ -19,7 +19,7 @@ public class MainActivity
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_launcher);
+        actionBar.setIcon(R.drawable.ic_accessibility);
     }
 
     public void onButtonClick(double altura, double peso)
