@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -16,6 +17,7 @@ public class dados extends Fragment {
 
     private static EditText altura_text;
     private static EditText peso_text;
+    private static TextView textview;
 
     String altura_string;
     String peso_string;
@@ -44,6 +46,7 @@ public class dados extends Fragment {
 
         final Button button = (Button) view.findViewById(R.id.button3);
 
+
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v)
             {
@@ -60,19 +63,28 @@ public class dados extends Fragment {
         //The data is extracted only after the button being pressed
         altura_text = ((EditText)getView().findViewById(R.id.editText5));
         peso_text = ((EditText)getView().findViewById(R.id.editText6));
+        //textview = (TextView) view.findViewById(R.id.id_resultado);
+
 
         altura_string = altura_text.getText().toString();
         peso_string = peso_text.getText().toString();
 
 
-        Log.d("HELLO", "this is altura" + altura_string);
-        Log.d("HELLO", "this is peso" + peso_string);
+        Log.d("hello", "this is altura" + altura_string);
+        Log.d("hello", "this is peso" + peso_string);
 
         try {
             altura_double = Double.parseDouble(altura_string);
             peso_double = Double.parseDouble(peso_string);
+            Log.d("hello", "try here!");
         } catch (NumberFormatException e) {
-            Log.v("Alerta!!", "Erro!");
+            Log.d("hello", "Erro!");
+            //necessário forçar as variáveis altura_double e peso_double a 0.0,
+            //pois caso contrário seria utilizado o valor anterior da caixa de texto
+            //em que tem um caracter diferente de número (comportamento do android, não propositado)
+            altura_double = 0.0;
+            peso_double = 0.0;
+            //textview.setText("HELLO");
         }
 
         if (mListener != null) {
