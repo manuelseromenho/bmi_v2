@@ -57,7 +57,8 @@
             android:textSize="18sp"
             android:layout_below="@+id/editText5"
             android:layout_alignRight="@+id/textView7"
-            android:layout_alignEnd="@+id/textView7" />
+            android:layout_alignEnd="@+id/textView7"
+            android:layout_marginTop="5dp" />
 
         <Button
             android:text="@string/button"
@@ -67,7 +68,9 @@
             android:layout_height="50dp"
             android:layout_below="@+id/editText6"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:textColor="@android:color/background_light"
+            android:background="@drawable/button_submit"/>
 
     </RelativeLayout>
 </FrameLayout>
