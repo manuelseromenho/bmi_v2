@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class dados extends Fragment {
 
-    private static EditText altura_text;
+    private static EditText altura_text ;
     private static EditText peso_text;
     private static TextView textview;
 
