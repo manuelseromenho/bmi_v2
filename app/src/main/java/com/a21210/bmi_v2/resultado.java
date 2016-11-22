@@ -37,7 +37,7 @@ public class resultado extends Fragment {
         textview.setText(String.format("%.2f - %.2f", altura, peso)) ;
         if(altura == 0.0 || peso == 0.0 || altura == 0 || peso == 0 )
         {
-            textview.setText("HELLO resultado");
+            textview.setText("Errado!");
         }
         else
         {

@@ -62,15 +62,30 @@
 
         <Button
             android:text="@string/button"
-            android:layout_marginTop="14dp"
             android:id="@+id/button3"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/editText6"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:textColor="@android:color/background_light"
-            android:background="@drawable/button_submit"/>
+            android:background="@drawable/button_submit"
+            android:layout_alignBaseline="@+id/button2"
+            android:layout_alignBottom="@+id/button2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:text="@string/gravar"
+            android:layout_marginTop="25dp"
+            android:id="@+id/button2"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:textColor="@android:color/background_light"
+            android:background="@drawable/button_gravar"
+            android:layout_marginRight="5dp"
+
+            android:layout_below="@+id/textView8"
+            android:layout_toLeftOf="@+id/button3"
+            android:layout_toStartOf="@+id/button3" />
+
 
     </RelativeLayout>
 </FrameLayout>

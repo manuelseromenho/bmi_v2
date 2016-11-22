@@ -11,12 +11,10 @@
         android:layout_height="50dp"
         android:layout_marginTop="23dp"
         android:id="@+id/id_resultado"
-
+        android:gravity="center"
         android:textAlignment="center"
-        android:textSize="36sp"
-        android:layout_below="@+id/button3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/resultado"/>
+        android:textSize="24sp"
+        android:background="@drawable/resultado"
+        tools:textAlignment="center" />
 
 </FrameLayout>
