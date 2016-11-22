@@ -30,11 +30,6 @@ public class dados extends Fragment {
     public interface OnFragmentInteractionListener
     {
         public void onButtonClick(double altura, double peso);
-    }
-
-    private OnSaveListener saveListener;
-    public interface OnSaveListener
-    {
         public void SaveButton();
     }
 
@@ -49,7 +44,6 @@ public class dados extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_dados,container,false);
         final Button button = (Button) view.findViewById(R.id.button3);
-
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v)
             {
@@ -104,8 +98,8 @@ public class dados extends Fragment {
 
     public void onButtonSaved(View view){
 
-        if (saveListener != null) {
-            saveListener.SaveButton();
+        if (mListener != null) {
+            mListener.SaveButton();
         }
 
     }
@@ -113,16 +107,9 @@ public class dados extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
-            saveListener = (OnSaveListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-
-        if (context instanceof OnSaveListener) {
-            saveListener = (OnSaveListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
