@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -92,6 +93,7 @@ public class MainActivity
             //resultado_string= String.valueOf(resultado_double);
             resultado_string = String.format("%.2f",resultado_double);
             texto_string = altura_string + " " + peso_string + " " + resultado_string + "\n";
+            Toast.makeText(this, texto_string, Toast.LENGTH_SHORT).show();
 
             try {
                 FileOutputStream fos = new FileOutputStream(myExternalFile, true);
@@ -113,6 +115,15 @@ public class MainActivity
             peso_double = 0.0;
         }
 
+        Button saveButton;
+        saveButton = (Button) findViewById(R.id.button2);
+        if (!isExternalStorageAvailable() || isExternalStorageReadOnly()) {
+            saveButton.setEnabled(false);
+        }
+        else {
+            myExternalFile = new File(getExternalFilesDir(filepath), filename);
+            //response.setText(myExternalFile.toString());
+        }
 
     }
 
