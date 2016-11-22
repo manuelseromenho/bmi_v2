@@ -102,12 +102,14 @@ public class MainActivity
                 response.setText("Saved!!");
             } catch (IOException e) {
                 e.printStackTrace();
+                response.setText("Error!!");
             }
 
 
-            Log.d("hello", "try here!");
+            //Log.d("hello", "try here!");
         } catch (NumberFormatException e) {
-            Log.d("hello", "Erro!");
+            response.setText("Num. Error!!");
+            //Log.d("hello", "Erro!");
             //necessário forçar as variáveis altura_double e peso_double a 0.0,
             //pois caso contrário seria utilizado o valor anterior da caixa de texto
             //em que tem um caracter diferente de número (comportamento do android, não propositado)
