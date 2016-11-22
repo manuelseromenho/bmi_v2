@@ -13,8 +13,8 @@ public class MainActivity
         extends AppCompatActivity
         implements dados.OnFragmentInteractionListener
 {
-    private String filename = "teste1.txt";
-    public String filepath = "/sdcard/hello";
+    private String filename = "bmi.txt";
+    public String filepath = "/sdcard";
     File myExternalFile;
     String myData = "";
     String texto_string = "";
@@ -47,6 +47,11 @@ public class MainActivity
         toast.setGravity(Gravity.TOP|Gravity.CENTER,0, 400);
         toast.show();*/
 
+
+    }
+
+    public void SaveButton()
+    {
 
     }
 
