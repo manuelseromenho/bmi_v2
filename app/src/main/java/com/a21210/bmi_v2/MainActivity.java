@@ -14,6 +14,8 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class MainActivity
         extends AppCompatActivity
@@ -74,6 +76,10 @@ public class MainActivity
         double peso_double = 0;
         double resultado_double;
 
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        String data = df.format(c.getTime());
+
         //The data is extracted only after the button being pressed
         altura_text = ((EditText)findViewById(R.id.editText5));
         peso_text = ((EditText)findViewById(R.id.editText6));
@@ -82,8 +88,17 @@ public class MainActivity
         altura_string = altura_text.getText().toString();
         peso_string = peso_text.getText().toString();
 
-        //Toast.makeText(this, "Altura = " + altura_string + " Peso = " + peso_string, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, data + " Altura = " + altura_string + " Peso = " + peso_string, Toast.LENGTH_SHORT).show();
 
+        Button saveButton;
+        saveButton = (Button) findViewById(R.id.button2);
+        if (!isExternalStorageAvailable() || isExternalStorageReadOnly()) {
+            saveButton.setEnabled(false);
+        }
+        else {
+            myExternalFile = new File(getExternalFilesDir(filepath), filename);
+            //response.setText(myExternalFile.toString());
+        }
 
         try {
             altura_double = Double.parseDouble(altura_string);
@@ -117,15 +132,7 @@ public class MainActivity
             peso_double = 0.0;
         }
 
-        Button saveButton;
-        saveButton = (Button) findViewById(R.id.button2);
-        if (!isExternalStorageAvailable() || isExternalStorageReadOnly()) {
-            saveButton.setEnabled(false);
-        }
-        else {
-            myExternalFile = new File(getExternalFilesDir(filepath), filename);
-            //response.setText(myExternalFile.toString());
-        }
+
 
     }
 
