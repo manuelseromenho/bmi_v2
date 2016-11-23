@@ -98,7 +98,7 @@ public class MainActivity
         }
         else {
             myExternalFile = new File(getExternalFilesDir(filepath), filename);
-            //response.setText(myExternalFile.toString());
+            response.setText(myExternalFile.toString());
         }
 
         try {
@@ -115,7 +115,8 @@ public class MainActivity
                 FileOutputStream fos = new FileOutputStream(myExternalFile, true);
                 fos.write(texto_string.getBytes());
                 fos.close();
-                response.setText("Saved!!");
+                //response.setText("Saved!!");
+                response.setText(myExternalFile.toString());
             } catch (IOException e) {
                 e.printStackTrace();
                 response.setText("Error!!");
@@ -138,6 +139,7 @@ public class MainActivity
     {
         //Toast.makeText(this, "TEST List Button", Toast.LENGTH_SHORT).show();
         Intent lista = new Intent(MainActivity.this,the_grid.class);
+        startActivity(lista);
     }
 
     private static boolean isExternalStorageReadOnly() {

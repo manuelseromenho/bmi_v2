@@ -10,4 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.a21210.bmi_v2.the_grid">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/list_grid_id"
+        android:headerDividersEnabled="true"
+        android:layout_height="300dp" />
 </RelativeLayout>
