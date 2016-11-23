@@ -71,19 +71,6 @@
             android:layout_below="@+id/button3" />
 
         <Button
-            android:text="Lista"
-            android:id="@+id/button2"
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:textColor="@android:color/background_light"
-            android:background="@drawable/button_gravar"
-
-            android:layout_alignBaseline="@+id/button4"
-            android:layout_alignBottom="@+id/button4"
-            android:layout_toLeftOf="@+id/button4"
-            android:layout_toStartOf="@+id/button4" />
-
-        <Button
             android:text="@string/button"
             android:id="@+id/button3"
             android:layout_height="50dp"
@@ -96,15 +83,26 @@
             android:layout_alignParentEnd="true" />
 
         <Button
-            android:text="@string/gravar"
-            android:layout_marginTop="2dp"
+            android:text="Lista"
+            android:layout_marginTop="18dp"
             android:id="@+id/button4"
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:textColor="@android:color/background_light"
-            android:background="@drawable/button_gravar"
+            android:background="@drawable/button_list"
+            android:layout_below="@+id/textView8"
+            android:layout_toLeftOf="@+id/button2"
+            android:layout_toStartOf="@+id/button2" />
 
-            android:layout_below="@+id/editText6"
+        <Button
+            android:text="@string/gravar"
+            android:id="@+id/button2"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:textColor="@android:color/background_light"
+            android:background="@drawable/button_gravar"
+            android:layout_alignBaseline="@+id/button4"
+            android:layout_alignBottom="@+id/button4"
             android:layout_toLeftOf="@+id/button3"
             android:layout_toStartOf="@+id/button3" />
 

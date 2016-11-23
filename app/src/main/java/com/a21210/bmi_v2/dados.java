@@ -31,6 +31,7 @@ public class dados extends Fragment {
     {
         public void onButtonClick(double altura, double peso);
         public void SaveButton();
+        public void ListButton();
     }
 
     public dados() {
@@ -43,6 +44,7 @@ public class dados extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_dados,container,false);
+
         final Button button = (Button) view.findViewById(R.id.button3);
         button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v)
@@ -56,6 +58,14 @@ public class dados extends Fragment {
             public void onClick(View v)
             {
                 onButtonSaved(v);
+            }
+        });
+
+        final Button button_list = (Button) view.findViewById(R.id.button4);
+        button_list.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v)
+            {
+                onButtonList(v);
             }
         });
 
@@ -100,6 +110,14 @@ public class dados extends Fragment {
 
         if (mListener != null) {
             mListener.SaveButton();
+        }
+
+    }
+
+    public void onButtonList(View view){
+
+        if (mListener != null) {
+            mListener.ListButton();
         }
 
     }

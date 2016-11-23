@@ -1,5 +1,6 @@
 package com.a21210.bmi_v2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
@@ -131,9 +132,12 @@ public class MainActivity
             altura_double = 0.0;
             peso_double = 0.0;
         }
+    }
 
-
-
+    public void ListButton()
+    {
+        //Toast.makeText(this, "TEST List Button", Toast.LENGTH_SHORT).show();
+        Intent lista = new Intent(MainActivity.this,the_grid.class);
     }
 
     private static boolean isExternalStorageReadOnly() {
