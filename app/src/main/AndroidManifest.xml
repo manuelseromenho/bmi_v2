@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".the_grid"></activity>
+        <activity android:name=".the_grid" />
+        <activity android:name=".imagem"></activity>
     </application>
 
 </manifest>
