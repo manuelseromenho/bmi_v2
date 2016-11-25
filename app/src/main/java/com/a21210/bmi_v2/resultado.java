@@ -26,12 +26,12 @@ public class resultado extends Fragment {
     {
         View view = inflater.inflate(R.layout.fragment_resultado, container, false);
 
-        textview = (TextView) view.findViewById(R.id.id_resultado);
+        //textview = (TextView) view.findViewById(R.id.id_resultado);
         button_resultado = (Button) view.findViewById(R.id.id_button_result);
 
 
 
-        textview.setVisibility(View.INVISIBLE);
+        //textview.setVisibility(View.INVISIBLE);
         button_resultado.setVisibility(View.INVISIBLE);
 
 

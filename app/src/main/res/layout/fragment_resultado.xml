@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.a21210.bmi_v2.resultado">
 
-    <TextView
+    <!--<TextView
         android:text="@string/resultado"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -16,7 +16,7 @@
         android:textSize="24sp"
         android:background="@drawable/resultado"
         tools:textAlignment="center"
-        android:clickable="false" />
+        android:clickable="false" />-->
 
     <Button
         android:text="Resultado"
