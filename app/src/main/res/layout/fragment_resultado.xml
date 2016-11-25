@@ -9,12 +9,26 @@
         android:text="@string/resultado"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="100dp"
         android:id="@+id/id_resultado"
         android:gravity="center"
         android:textAlignment="center"
         android:textSize="24sp"
         android:background="@drawable/resultado"
-        tools:textAlignment="center" />
+        tools:textAlignment="center"
+        android:clickable="false" />
+
+    <Button
+        android:text="Resultado"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/resultado"
+        android:id="@+id/id_button_result"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        tools:textAlignment="center"
+        />
 
 </FrameLayout>

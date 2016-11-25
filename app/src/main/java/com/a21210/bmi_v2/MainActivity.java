@@ -1,12 +1,17 @@
 package com.a21210.bmi_v2;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +34,9 @@ public class MainActivity
     String texto_string = "";
     TextView response;
 
+    private static EditText altura_text ;
+    private static EditText peso_text;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,11 +51,20 @@ public class MainActivity
         actionBar.setIcon(R.drawable.ic_accessibility);
     }
 
-    public void onButtonClick(double altura, double peso)
+    public void onButtonClick(double altura, double peso, int but_vis)
     {
         resultado resultado = (resultado)getSupportFragmentManager().findFragmentById(R.id.fragment2);
 
-        resultado.calculoBMI(altura,peso);
+        resultado.calculoBMI(altura,peso,but_vis);
+
+        //utilizado para esconder o teclado após o click no botão calcular
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
+
+
+
 
         //Toast.makeText(this, "this is my Toast message!!! =)", Toast.LENGTH_SHORT).show();
 
@@ -108,24 +125,25 @@ public class MainActivity
             resultado_double = peso_double/Math.pow((altura_double/100),2);
             //resultado_string= String.valueOf(resultado_double);
             resultado_string = String.format("%.2f",resultado_double);
-            texto_string = altura_string + " " + peso_string + " " + resultado_string + "\n";
-            Toast.makeText(this, texto_string, Toast.LENGTH_SHORT).show();
+            //texto_string = data + altura_string + " " + peso_string + " " + resultado_string + "\n";
+            texto_string = data + " " + resultado_string + "\n";
+            //Toast.makeText(this, texto_string, Toast.LENGTH_SHORT).show();
 
+            //
             try {
                 FileOutputStream fos = new FileOutputStream(myExternalFile, true);
                 fos.write(texto_string.getBytes());
                 fos.close();
-                //response.setText("Saved!!");
-                response.setText(myExternalFile.toString());
+                response.setText("Gravado em" + myExternalFile.toString());
             } catch (IOException e) {
                 e.printStackTrace();
-                response.setText("Error!!");
+                response.setText("Erro na gravação!!");
             }
 
 
             //Log.d("hello", "try here!");
         } catch (NumberFormatException e) {
-            response.setText("Num. Error!!");
+            response.setText("Dados errados!!");
             //Log.d("hello", "Erro!");
             //necessário forçar as variáveis altura_double e peso_double a 0.0,
             //pois caso contrário seria utilizado o valor anterior da caixa de texto
@@ -157,5 +175,7 @@ public class MainActivity
         }
         return false;
     }
+
+
 
 }

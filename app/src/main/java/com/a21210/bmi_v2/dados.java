@@ -25,11 +25,13 @@ public class dados extends Fragment {
     double altura_double = 0;
     double peso_double = 0;
 
+    int but_visible_flag = 0;
+
 
     private OnFragmentInteractionListener mListener;
     public interface OnFragmentInteractionListener
     {
-        public void onButtonClick(double altura, double peso);
+        public void onButtonClick(double altura, double peso, int but_vis_flag);
         public void SaveButton();
         public void ListButton();
     }
@@ -74,6 +76,8 @@ public class dados extends Fragment {
 
     public void onButtonPressed(View view) {
 
+
+
         //The data is extracted only after the button being pressed
         altura_text = ((EditText)getView().findViewById(R.id.editText5));
         peso_text = ((EditText)getView().findViewById(R.id.editText6));
@@ -90,7 +94,9 @@ public class dados extends Fragment {
         try {
             altura_double = Double.parseDouble(altura_string);
             peso_double = Double.parseDouble(peso_string);
+            but_visible_flag = 1;
             Log.d("hello", "try here!");
+
         } catch (NumberFormatException e) {
             Log.d("hello", "Erro!");
             //necessário forçar as variáveis altura_double e peso_double a 0.0,
@@ -99,10 +105,11 @@ public class dados extends Fragment {
             altura_double = 0.0;
             peso_double = 0.0;
             //textview.setText("HELLO");
+            but_visible_flag = 0;
         }
 
         if (mListener != null) {
-            mListener.onButtonClick(altura_double, peso_double);
+            mListener.onButtonClick(altura_double, peso_double,but_visible_flag);
         }
     }
 
