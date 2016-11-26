@@ -3,7 +3,9 @@ package com.a21210.bmi_v2;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 public class imagem extends AppCompatActivity {
@@ -12,19 +14,28 @@ public class imagem extends AppCompatActivity {
     ImageView imgview;
     Double resultado_double;
 
+    public imagem(){}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imagem);
 
         imgview = (ImageView)findViewById(R.id.imageView1);
-
-
-
         Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            image_value = extras.getString("bmi_value");
-            //The key argument here must match that used in the other activity
+
+
+
+        try {
+            if (extras != null) {
+                image_value = extras.getString("bmi_value");
+                //The key argument here must match that used in the other activity
+            }
+            Log.d("hello", "try here!");
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "this is my Toast message!!! =)", Toast.LENGTH_SHORT).show();
+            Log.d("hello", "Erro!");
         }
 
         resultado_double = Double.parseDouble(image_value);
@@ -58,4 +69,5 @@ public class imagem extends AppCompatActivity {
             imgview.setImageResource(R.drawable.bmiimg1);
         }
     }
+
 }

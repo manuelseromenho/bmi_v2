@@ -166,7 +166,8 @@ public class MainActivity
     {
         Intent imagem_intent = new Intent(MainActivity.this,imagem.class);
 
-        imagem_intent.putExtra("bmi_value",resultado_bmi);
+        String resultado_bmi_string = String.valueOf(resultado_bmi);
+        imagem_intent.putExtra("bmi_value",resultado_bmi_string);
         startActivity(imagem_intent);
     }
 
