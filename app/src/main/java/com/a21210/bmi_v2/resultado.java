@@ -1,5 +1,6 @@
 package com.a21210.bmi_v2;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -22,8 +23,16 @@ public class resultado extends Fragment {
     TextView response_resultado;
     TableRow tr;
     TableLayout tl;
+    double resultado_double;
 
     String resultado_string = "";
+
+    private OnFragmentInteractionListener resultadoListener;
+    public interface OnFragmentInteractionListener
+    {
+        void imageClick(double resultado_bmi);
+
+    }
 
 
     @Override
@@ -32,7 +41,15 @@ public class resultado extends Fragment {
         View view = inflater.inflate(R.layout.fragment_resultado, container, false);
 
         //textview = (TextView) view.findViewById(R.id.id_resultado);
-        button_resultado = (Button) view.findViewById(R.id.id_button_result);
+        //button_resultado = (Button) view.findViewById(R.id.id_button_result);
+
+        final Button button_resultado = (Button) view.findViewById(R.id.id_button_result);
+        button_resultado.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v)
+            {
+                imageButton(v);
+            }
+        });
 
 
 
@@ -44,9 +61,13 @@ public class resultado extends Fragment {
         return view;
     }
 
+    /*public resultado()
+    {// Required empty public constructor
+    }*/
+
     public void calculoBMI(double altura, double peso, int but_vis)
     {
-        double resultado_double;
+
         response_resultado = (TextView) getActivity().findViewById(R.id.response);
         tl = (TableLayout) getActivity().findViewById(R.id.table_layout);
 
@@ -131,6 +152,33 @@ public class resultado extends Fragment {
         //Toast.makeText(getActivity(), "this is my Toast message!!! =)", Toast.LENGTH_SHORT).show();
 
     }
+
+    public void imageButton(View view)
+    {
+        if (resultadoListener != null) {
+            resultadoListener.imageClick(resultado_double);
+        }
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (context instanceof OnFragmentInteractionListener) {
+            resultadoListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        resultadoListener = null;
+    }
+
+
 
 
 }

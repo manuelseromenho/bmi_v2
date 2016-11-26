@@ -162,6 +162,12 @@ public class MainActivity
         startActivity(lista);
     }
 
+    public void imageClick(double resultado_bmi)
+    {
+        Intent imagem_intent = new Intent(MainActivity.this,imagem.class);
+        startActivity(imagem_intent);
+    }
+
     private static boolean isExternalStorageReadOnly() {
         String extStorageState = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(extStorageState)) {
