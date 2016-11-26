@@ -76,20 +76,15 @@ public class dados extends Fragment {
 
     public void onButtonPressed(View view) {
 
-
-
         //The data is extracted only after the button being pressed
         altura_text = ((EditText)getView().findViewById(R.id.editText5));
         peso_text = ((EditText)getView().findViewById(R.id.editText6));
-        //textview = (TextView) view.findViewById(R.id.id_resultado);
-
 
         altura_string = altura_text.getText().toString();
         peso_string = peso_text.getText().toString();
 
-
-        Log.d("hello", "this is altura" + altura_string);
-        Log.d("hello", "this is peso" + peso_string);
+        //Log.d("hello", "this is altura" + altura_string);
+        //Log.d("hello", "this is peso" + peso_string);
 
         try {
             altura_double = Double.parseDouble(altura_string);
@@ -104,7 +99,6 @@ public class dados extends Fragment {
             //em que tem um caracter diferente de número (comportamento do android, não propositado)
             altura_double = 0.0;
             peso_double = 0.0;
-            //textview.setText("HELLO");
             but_visible_flag = 0;
         }
 

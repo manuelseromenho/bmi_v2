@@ -63,22 +63,6 @@ public class MainActivity
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
 
-
-
-
-
-
-        //Toast.makeText(this, "this is my Toast message!!! =)", Toast.LENGTH_SHORT).show();
-
-        //Context context = getApplicationContext();
-        /*CharSequence texty = "Hello toast!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(this,texty, duration);
-        toast.setGravity(Gravity.TOP|Gravity.CENTER,0, 400);
-        toast.show();*/
-
-
     }
 
     public void SaveButton()
@@ -103,12 +87,9 @@ public class MainActivity
         //The data is extracted only after the button being pressed
         altura_text = ((EditText)findViewById(R.id.editText5));
         peso_text = ((EditText)findViewById(R.id.editText6));
-        //textview = (TextView) view.findViewById(R.id.id_resultado);
 
         altura_string = altura_text.getText().toString();
         peso_string = peso_text.getText().toString();
-
-        //Toast.makeText(this, data + " Altura = " + altura_string + " Peso = " + peso_string, Toast.LENGTH_SHORT).show();
 
         Button saveButton;
         saveButton = (Button) findViewById(R.id.button2);
@@ -125,13 +106,11 @@ public class MainActivity
             peso_double = Double.parseDouble(peso_string);
 
             resultado_double = peso_double/Math.pow((altura_double/100),2);
-            //resultado_string= String.valueOf(resultado_double);
             resultado_string = String.format("%.2f",resultado_double);
-            //texto_string = data + altura_string + " " + peso_string + " " + resultado_string + "\n";
             texto_string = data + " " + resultado_string + "\n";
-            //Toast.makeText(this, texto_string, Toast.LENGTH_SHORT).show();
 
-            //
+
+            //Gravação no ficheiro
             try {
                 FileOutputStream fos = new FileOutputStream(myExternalFile, true);
                 fos.write(texto_string.getBytes());
@@ -146,7 +125,6 @@ public class MainActivity
             //Log.d("hello", "try here!");
         } catch (NumberFormatException e) {
             response.setText("Dados errados!!");
-            //Log.d("hello", "Erro!");
             //necessário forçar as variáveis altura_double e peso_double a 0.0,
             //pois caso contrário seria utilizado o valor anterior da caixa de texto
             //em que tem um caracter diferente de número (comportamento do android, não propositado)
@@ -157,7 +135,6 @@ public class MainActivity
 
     public void ListButton()
     {
-        //Toast.makeText(this, "TEST List Button", Toast.LENGTH_SHORT).show();
         Intent lista = new Intent(MainActivity.this,the_grid.class);
         startActivity(lista);
     }
@@ -171,6 +148,7 @@ public class MainActivity
         startActivity(imagem_intent);
     }
 
+    //verificação da existência de cartão sd e de possibilidade de gravar
     private static boolean isExternalStorageReadOnly() {
         String extStorageState = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(extStorageState)) {

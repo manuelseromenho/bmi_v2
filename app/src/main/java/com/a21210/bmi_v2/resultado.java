@@ -40,7 +40,6 @@ public class resultado extends Fragment {
     {
         View view = inflater.inflate(R.layout.fragment_resultado, container, false);
 
-        //textview = (TextView) view.findViewById(R.id.id_resultado);
         button_resultado = (Button) view.findViewById(R.id.id_button_result);
 
         final Button button_result = (Button) view.findViewById(R.id.id_button_result);
@@ -51,12 +50,7 @@ public class resultado extends Fragment {
             }
         });
 
-
-
-        //textview.setVisibility(View.INVISIBLE);
         button_resultado.setVisibility(View.INVISIBLE);
-
-
 
         return view;
     }
@@ -72,11 +66,9 @@ public class resultado extends Fragment {
         tl = (TableLayout) getActivity().findViewById(R.id.table_layout);
 
 
-        //Caso os valores das caixas de texto sejam diferentes de um número,
-        //indica messagem de erro, caso os valores sejam números, procede-se
-        //ao calculo
-
-        //textview.setText(String.format("%.2f - %.2f", altura, peso)) ;
+        //Caso os valores das caixas de texto sejam diferentes de "algarismos",
+        //indica messagem de erro, caso os valores sejam "algarismo", procede-se
+        //ao cálculo
         if(altura == 0.0 || peso == 0.0 || altura == 0 || peso == 0 )
         {
             //textview.setText("Errado!");
@@ -87,15 +79,13 @@ public class resultado extends Fragment {
         else
         {
             resultado_double = peso/Math.pow((altura/100),2);
-            //resultado_string= String.valueOf(resultado_double);
-            //Log.d("HELLO", resultado_string);
-            //textview.setText(String.format("%.2f",resultado_double));
             button_resultado.setText("Click!! -> " + String.format("%.2f",resultado_double));
             button_resultado.setVisibility(View.VISIBLE);
 
             response_resultado.setText(".     .");
 
-
+            //Iteração na TableLayout (tl), pelas TableRow's (tr) de maneira a colocar a cor padrão,
+            //de maneira a não guardar as ultimas linhas colorida.
             for(int i = 0, j = tl.getChildCount(); i < j; i++) {
                 View view = tl.getChildAt(i);
                 if (view instanceof TableRow) {
@@ -104,7 +94,7 @@ public class resultado extends Fragment {
                 }
             }
 
-
+            //Enfase da linha (tablerow) em vermelho para visualização melhor do bmi e seus indices.
             if(resultado_double < 16)
             {
                 tr = (TableRow)getActivity().findViewById(R.id.table_row2);
@@ -141,16 +131,6 @@ public class resultado extends Fragment {
                    tr.setBackgroundColor(Color.RED);
                }
         }
-
-
-
-
-
-
-        //textview.setText(String.valueOf(resultado_double));
-
-        //Toast.makeText(getActivity(), "this is my Toast message!!! =)", Toast.LENGTH_SHORT).show();
-
     }
 
     public void imageButton(View view)
@@ -177,8 +157,5 @@ public class resultado extends Fragment {
         super.onDetach();
         resultadoListener = null;
     }
-
-
-
 
 }

@@ -27,8 +27,6 @@ public class imagem extends AppCompatActivity {
         imgview = (ImageView)findViewById(R.id.imageView1);
         Bundle extras = getIntent().getExtras();
 
-
-
         try {
             if (extras != null) {
                 image_value = extras.getString("bmi_value");
@@ -43,6 +41,7 @@ public class imagem extends AppCompatActivity {
 
         resultado_double = Double.parseDouble(image_value);
 
+        //Escolha da imagem
         if(resultado_double < 16)
         {
             imgview.setImageResource(R.drawable.bmiimg5);
@@ -73,6 +72,7 @@ public class imagem extends AppCompatActivity {
         }
     }
 
+    //Solicitação GET a uma página em PHP, é enviado o valor BMI, executado no servidor e devolvida a informação esperada
     public void website_click(View view) {
         // Do something in response to button click
         String url = "http://inforzen.com/temporario/a21210/pdm/index.php?bmi=" + String.format("%.2f",resultado_double);
