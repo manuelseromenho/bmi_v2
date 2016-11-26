@@ -165,6 +165,8 @@ public class MainActivity
     public void imageClick(double resultado_bmi)
     {
         Intent imagem_intent = new Intent(MainActivity.this,imagem.class);
+
+        imagem_intent.putExtra("bmi_value",resultado_bmi);
         startActivity(imagem_intent);
     }
 
