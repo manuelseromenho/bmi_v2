@@ -27,8 +27,8 @@ public class resultado extends Fragment {
 
     String resultado_string = "";
 
-    private OnFragmentInteractionListener resultadoListener;
-    public interface OnFragmentInteractionListener
+    private OnFragmentInteractionListene resultadoListener;
+    public interface OnFragmentInteractionListene
     {
         void imageClick(double resultado_bmi);
 
@@ -41,10 +41,10 @@ public class resultado extends Fragment {
         View view = inflater.inflate(R.layout.fragment_resultado, container, false);
 
         //textview = (TextView) view.findViewById(R.id.id_resultado);
-        //button_resultado = (Button) view.findViewById(R.id.id_button_result);
+        button_resultado = (Button) view.findViewById(R.id.id_button_result);
 
-        final Button button_resultado = (Button) view.findViewById(R.id.id_button_result);
-        button_resultado.setOnClickListener(new View.OnClickListener(){
+        final Button button_result = (Button) view.findViewById(R.id.id_button_result);
+        button_result.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v)
             {
                 imageButton(v);
@@ -61,9 +61,9 @@ public class resultado extends Fragment {
         return view;
     }
 
-    /*public resultado()
+    public resultado()
     {// Required empty public constructor
-    }*/
+    }
 
     public void calculoBMI(double altura, double peso, int but_vis)
     {
@@ -161,14 +161,14 @@ public class resultado extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onAttach(Context context_) {
+        super.onAttach(context_);
 
-        if (context instanceof OnFragmentInteractionListener) {
-            resultadoListener = (OnFragmentInteractionListener) context;
+        if (context_ instanceof OnFragmentInteractionListene) {
+            resultadoListener = (OnFragmentInteractionListene) context_;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+            throw new RuntimeException(context_.toString()
+                    + " must implement OnFragmentInteractionListene");
         }
     }
 

@@ -25,7 +25,7 @@ import java.util.Calendar;
 
 public class MainActivity
         extends AppCompatActivity
-        implements dados.OnFragmentInteractionListener
+        implements dados.OnFragmentInteractionListener, resultado.OnFragmentInteractionListene
 {
     private String filename = "bmi.txt";
     public String filepath = "/sdcard";
