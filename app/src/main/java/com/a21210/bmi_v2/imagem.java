@@ -1,9 +1,12 @@
 package com.a21210.bmi_v2;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -68,6 +71,14 @@ public class imagem extends AppCompatActivity {
         {
             imgview.setImageResource(R.drawable.bmiimg1);
         }
+    }
+
+    public void website_click(View view) {
+        // Do something in response to button click
+        String url = "http://inforzen.com/temporario/a21210/pdm/index.php?bmi=" + String.format("%.2f",resultado_double);
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 
 }
