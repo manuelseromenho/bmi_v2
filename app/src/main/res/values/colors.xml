@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="primary_text_material_light">@android:color/background_light</color>
-    <color name="app_bar_text_color">#FFFFFF</color>
+    <color name="app_bar_text_color">#ffffff</color>
+    <color name="foreground_material_light_1">#b1ffffff</color>
+    <color name="foreground_material_light_2">#ffffff</color>
 </resources>

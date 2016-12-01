@@ -22,7 +22,8 @@
             android:background="@drawable/rounded_edittext"
             android:layout_alignLeft="@+id/button3"
             android:layout_alignStart="@+id/button3"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@android:color/black" />
 
 
         <TextView
@@ -47,7 +48,8 @@
             android:layout_alignLeft="@+id/editText5"
             android:layout_alignStart="@+id/editText5"
             android:background="@drawable/rounded_edittext"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
