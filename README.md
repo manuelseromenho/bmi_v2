@@ -1,2 +1,3 @@
-# bmi_v2
-This is just a test to calculate BMI in android phone, small test
+# bmi_v2 
+
+Calculate BMI in android phone (*academic work*).
